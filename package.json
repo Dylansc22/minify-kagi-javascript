@@ -1,10 +1,15 @@
 {
   "scripts": {
-    "output": "./node_modules/.bin/browserify main.js -s turf > turf-functions.js"
+    "browserify": "./node_modules/.bin/browserify",
+    "uglifyjs": "./node_modules/.bin/uglifyjs",
+    "turf-load": "./node_modules/.bin/browserify main.js -s turf > turf-functions.js",
+    "turf-minify": "./node_modules/.bin/uglifyjs turf-functions.js --compress --mangle --toplevel --output turf-minified.js",
+    "minify": "./node_modules/.bin/uglifyjs --compress --mangle --toplevel"
   },
   "dependencies": {
     "@turf/distance": "^6.5.0",
-    "browserify": "^17.0.0"
+    "browserify": "^17.0.0",
+    "uglify-js": "^3.14.1"
   },
   "devDependencies": {
     "prettier": "^2.3.2"
